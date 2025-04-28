@@ -146,8 +146,10 @@ h2 {
 </head>
 <body>
 <div style="max-width:550px;margin:0px auto;">
-  <h1><input text="text" placeholder="ENTER YOUR SCHOOL NAME"/></h1>
-  <p><input text="text" placeholder="Give recognization board name"/><br> <b><input text="url" id="gmail" placeholder="https://mail.google.com/..."/></b></p>
+  <!-- Fix input attributes -->
+<h1><input type="text" placeholder="ENTER YOUR SCHOOL NAME"/></h1>
+<p><input type="text" placeholder="Give recognization board name"/><br> 
+   <b><input type="url" id="gmail" placeholder="https://mail.google.com/..."/></b></p>
   <address>
     <input text="text" placeholder="Enter your Address"/>
   </address>
@@ -190,15 +192,15 @@ h2 {
     <td class="grade"></td>
   </tr>
   <tr>
-    <td><input type="text" placeholder="OPTIONAL SUBJECT I"/></td>
-    <td><input type="number" placeholder="Enter Marks..." class="marks" min="0" max="99.99" maxlength="2" oninput="this.value=this.value.slice(0,2)"/></td>
+    <td><input type="text" id="optional1" placeholder="OPTIONAL SUBJECT I"/></td>
+    <td><input type="number" placeholder="Enter Marks..." class="marks optional1-marks" min="0" max="99.99" maxlength="2" oninput="this.value=this.value.slice(0,2)" disabled/></td>
     <td class="grade"></td>
-  </tr>
-  <tr>
-    <td><input type="text" placeholder="OPTIONAL SUBJECT II"/></td>
-    <td><input type="number" placeholder="Enter Marks..." class="marks" min="0" max="99.99" maxlength="2" oninput="this.value=this.value.slice(0,2)"/></td>
+</tr>
+<tr>
+    <td><input type="text" id="optional2" placeholder="OPTIONAL SUBJECT II"/></td>
+    <td><input type="number" placeholder="Enter Marks..." class="marks optional2-marks" min="0" max="99.99" maxlength="2" oninput="this.value=this.value.slice(0,2)" disabled/></td>
     <td class="grade"></td>
-  </tr>
+</tr>
   
 </table>
 <table>
@@ -215,14 +217,44 @@ h2 {
     <td id="finalgrade"></td>
   </tr>
 </table>
+<!-- Fix signature table structure -->
 <table class="table">
-    <tr><th>PRINCIPlE SIGNATURE: </th><td><input type="text"</td></tr><td><td> <tr><th>CLASS TEACHER SIGNATURE: </th><td><input type="text"</td></tr><td><td>
-    <tr><th>GAURDIAN SIGNATURE: </th><td><input type="text"</td></tr><td><td>
-    
+  <tr>
+      <th>PRINCIPlE SIGNATURE: </th>
+      <td><input type="text"></td>
+  </tr>
+  <tr>
+      <th>CLASS TEACHER SIGNATURE: </th>
+      <td><input type="text"></td>
+  </tr>
+  <tr>
+      <th>GAURDIAN SIGNATURE: </th>
+      <td><input type="text"></td>
+  </tr>
 </table>
 </div>
 
 <script>
+// Add this before your existing event listener
+document.getElementById('optional1').addEventListener('input', function() {
+    const marksInput = document.querySelector('.optional1-marks');
+    if(this.value.trim() !== '') {
+        marksInput.disabled = false;
+    } else {
+        marksInput.disabled = true;
+        marksInput.value = '';
+    }
+});
+
+document.getElementById('optional2').addEventListener('input', function() {
+    const marksInput = document.querySelector('.optional2-marks');
+    if(this.value.trim() !== '') {
+        marksInput.disabled = false;
+    } else {
+        marksInput.disabled = true;
+        marksInput.value = '';
+    }
+});
 document.addEventListener('keyup', function (event) {
 									 
 var totalmarks = 0;
