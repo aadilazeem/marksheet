@@ -93,9 +93,55 @@ h2 {
     position: relative;
     top: 6px;
 }
-.col-blue{font-size:16px;color:#2196F3;}
+/* .col-blue{font-size:16px;color:#2196F3;}
 .col-green{font-size:16px;color:green;}
-.col-red{ font-size:16px;color:red; }
+.col-red{ font-size:16px;color:red; } */
+.no-bg {
+    background-color: transparent !important;
+    padding: 0;
+  }
+  mark {
+    background-color: transparent !important;
+    padding: 0;
+}
+@media print {
+    @page {
+        size: A4;
+        margin: 20mm;
+    }
+    body, html {
+        font-size: 12px;
+        width: 100%;
+        height: auto;
+        margin: 0;
+    }
+    h1, h2 {
+        text-align: center;
+        font-size: 18px;
+    }
+    .student, .table {
+        width: 100%;
+        page-break-inside: avoid;
+    }
+    table {
+        width: 100%;
+        max-width: none;
+    }
+    input {
+        width: auto;
+        font-size: 12px;
+        border: none;
+        background: transparent;
+    }
+    .col-blue, .col-green, .col-red {
+        font-size: 14px;
+    }
+    /* Hide unnecessary elements during print (like input fields) */
+    input[type="text"], input[type="number"] {
+        border: none;
+        background: none;
+    }
+}
 </style>
 </head>
 <body>
@@ -187,31 +233,31 @@ if(x[i].value!='')	{
 
 if(parseFloat(x[i].value)>90)
 {
- document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-green">Grade A+</mark>';
+ document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-green">A+</mark>';
 }
 else if(parseFloat(x[i].value)>80)
 {
- document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-blue">Grade A</mark>';
+ document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-blue">A</mark>';
 }
 else if(parseFloat(x[i].value)>70)
 {
- document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-blue">Grade B+</mark>';
+ document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-blue">B+</mark>';
 }
 else if(parseFloat(x[i].value)>60)
 {
- document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-blue">Grade B</mark>';
+ document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-blue">B</mark>';
 }
 else if(parseFloat(x[i].value)>50)
 {
- document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-blue">Grade C+</mark>';
+ document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-blue">C+</mark>';
 }
 else if(parseFloat(x[i].value)>40)
 {
- document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-blue">Grade C</mark>';
+ document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-blue">C</mark>';
 }		
 else if(parseFloat(x[i].value)>35)
 {
- document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-blue">Grade D</mark>';
+ document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-blue">D</mark>';
 }		
 else 
 {
@@ -221,11 +267,11 @@ else
 }
 }
 
-document.getElementById('totalmarks').innerHTML='<mark>'+totalmarks +' / 700</mark>';
+document.getElementById('totalmarks').innerHTML='<mark class="no-bg">'+totalmarks +' / 700</mark>';
 
 var percentage = parseFloat(totalmarks)/7;
 
-document.getElementById('percentage').innerHTML='<mark>'+percentage +' %</mark>';
+document.getElementById('percentage').innerHTML='<mark class="no-bg">'+percentage +' %</mark>';
 
 if(parseFloat(percentage)>90)
 {
