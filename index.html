@@ -148,13 +148,7 @@ h2 {
     <td><input type="number" placeholder="Enter Marks..." class="marks"/></td>
     <td class="grade"></td>
   </tr>
-  <tr>
-    <td><input type="text" placeholder="Enter your subjects name"/></td>
-    <td><input type="number" placeholder="Enter Marks..." class="marks"/></td>
-    <td class="grade"></td>
-  </tr>
-
-	
+  
 </table>
 <table>
   <tr>
@@ -188,65 +182,73 @@ if(x[i].value!='')	{
 
 if(parseFloat(x[i].value)>90)
 {
- document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-green">Grade A</mark>';
+ document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-green">Grade A+</mark>';
 }
 else if(parseFloat(x[i].value)>80)
 {
- document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-blue">Grade B</mark>';
+ document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-blue">Grade A</mark>';
 }
 else if(parseFloat(x[i].value)>70)
 {
- document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-blue">Grade C</mark>';
+ document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-blue">Grade B+</mark>';
 }
 else if(parseFloat(x[i].value)>60)
 {
- document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-blue">Grade D</mark>';
+ document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-blue">Grade B</mark>';
 }
 else if(parseFloat(x[i].value)>50)
 {
- document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-blue">Grade E</mark>';
+ document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-blue">Grade C+</mark>';
 }
 else if(parseFloat(x[i].value)>40)
 {
- document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-blue">Grade F</mark>';
+ document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-blue">Grade C</mark>';
+}		
+else if(parseFloat(x[i].value)>35)
+{
+ document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-blue">Grade D</mark>';
 }		
 else 
 {
- document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-red">Fail</mark>';
+ document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-red">D</mark>';
 }
  totalmarks += parseFloat(x[i].value);
 }
 }
 
-document.getElementById('totalmarks').innerHTML='<mark>'+totalmarks +' / 500</mark>';
+document.getElementById('totalmarks').innerHTML='<mark>'+totalmarks +' / 700</mark>';
 
-var percentage = parseFloat(totalmarks)/5;
+var percentage = parseFloat(totalmarks)/7;
 
 document.getElementById('percentage').innerHTML='<mark>'+percentage +' %</mark>';
 
 if(parseFloat(percentage)>90)
 {
- document.getElementById("finalgrade").innerHTML='<mark class="col-green">Grade A</mark>';
+ document.getElementById("finalgrade").innerHTML='<mark class="col-green">Grade A+</mark>';
 }
 else if(parseFloat(percentage)>80)
 {
- document.getElementById("finalgrade").innerHTML='<mark class="col-blue">Grade B</mark>';
+ document.getElementById("finalgrade").innerHTML='<mark class="col-blue">Grade A</mark>';
 }
 else if(parseFloat(percentage)>70)
 {
- document.getElementById("finalgrade").innerHTML='<mark class="col-blue">Grade C</mark>';
+ document.getElementById("finalgrade").innerHTML='<mark class="col-blue">Grade B+</mark>';
 }
 else if(parseFloat(percentage)>60)
 {
- document.getElementById("finalgrade").innerHTML='<mark class="col-blue">Grade D</mark>';
+ document.getElementById("finalgrade").innerHTML='<mark class="col-blue">Grade B</mark>';
 }
 else if(parseFloat(percentage)>50)
 {
- document.getElementById("finalgrade").innerHTML='<mark class="col-blue">Grade E</mark>';
+ document.getElementById("finalgrade").innerHTML='<mark class="col-blue">Grade C+</mark>';
 }
 else if(parseFloat(percentage)>40)
 {
- document.getElementById("finalgrade").innerHTML='<mark class="col-blue">Grade F</mark>';
+ document.getElementById("finalgrade").innerHTML='<mark class="col-blue">Grade C</mark>';
+}		
+else if(parseFloat(percentage)>35)
+{
+ document.getElementById("finalgrade").innerHTML='<mark class="col-blue">Grade D</mark>';
 }		
 else 
 {
