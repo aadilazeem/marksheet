@@ -1,343 +1,397 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Gradesheet</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-@import url('https://fonts.googleapis.com/css2?family=PT+Serif+Caption&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
-body, html {
-	height:100%;
-	font-family:'Poppins', sans-serif;
-	background:#f1f8e9b8;
-	font-size:15px;
-	margin:0px auto;
-}
-table {
-	width:100%;
-	border-collapse: collapse;
-	max-width:600px;
-	margin-bottom:30px!important;
-	margin-top:30px!important;
-	margin:0px auto;
-}
-table tr th {
-	font-weight:600;
-}
-table tr td, table tr th {
-	padding:7px 10px;
-	border: 1px solid #818181;
-	text-align:left;
-	width:300px;
-	font-size:14px;
-	font-weight:500;
-}
-input {
-	padding: 10px;
-	background:transparent;
-	height:20px;
-	width: 230px;
-	border: 1px solid #999999;
-	border-radius: 4px;
-	font-size:14px;
-	-outline:none;
-}
-
-p{
-	font-size:14px;
-}
-h1, h2, p {
-	padding:0px;
-	margin:0px;
-	text-align:center;
-}
-address {
-	font-size:13px;
-	text-align:center;
-}
-h1 {
-	margin-top:20px;
-	font-size:35px;
-	font-weight:800;
-}
-h2 {
-	margin-top:10px;
-	font-size:18px;
-}
-.fname {
-	font-family: 'PT Serif Caption', serif;
-	    border-bottom: 2px dotted black;
-	margin-bottom:10px;
-}
-.fname b{
-    border-bottom: 3px solid #f2f8eb;
-    padding-right:5px;
-}
-.student tr {
-    border: none;
-    padding: 5px 0px;
-    display: flex;
-}
-.student th, .student td{
-	border:none;
-}
-.student th{
-	width:80px;
-	padding-bottom: 0px;
-}
-.student td{
-	border-bottom: 2px dotted black;
-    padding:0px;
-}
-.student td span{
-    position: relative;
-    top: 6px;
-}
-/* .col-blue{font-size:16px;color:#2196F3;}
-.col-green{font-size:16px;color:green;}
-.col-red{ font-size:16px;color:red; } */
-.no-bg {
-    background-color: transparent !important;
-    padding: 0;
-  }
-  mark {
-    background-color: transparent !important;
-    padding: 0;
-}
-@media print {
-    @page {
+  <title>Gradesheet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=PT+Serif+Caption&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+    body, html {
+      height:100%;
+      font-family:'Poppins', sans-serif;
+      background:#f1f8e9b8;
+      font-size:15px;
+      margin:0px auto;
+    }
+    table {
+      width:100%;
+      border-collapse: collapse;
+      max-width:600px;
+      margin-bottom:30px!important;
+      margin-top:30px!important;
+      margin:0px auto;
+    }
+    table tr th {
+      font-weight:600;
+    }
+    table tr td, table tr th {
+      padding:7px 10px;
+      border: 1px solid #818181;
+      text-align:left;
+      width:300px;
+      font-size:14px;
+      font-weight:500;
+    }
+    input {
+      padding: 10px;
+      background:transparent;
+      height:20px;
+      width: 230px;
+      border: 1px solid #999999;
+      border-radius: 4px;
+      font-size:14px;
+      -outline:none;
+    }
+    p {
+      font-size:14px;
+    }
+    h1, h2, p {
+      padding:0px;
+      margin:0px;
+      text-align:center;
+    }
+    address {
+      font-size:13px;
+      text-align:center;
+    }
+    h1 {
+      margin-top:20px;
+      font-size:35px;
+      font-weight:800;
+    }
+    h2 {
+      margin-top:10px;
+      font-size:18px;
+    }
+    .fname {
+      font-family: 'PT Serif Caption', serif;
+      border-bottom: 2px dotted black;
+      margin-bottom:10px;
+    }
+    .fname b {
+      border-bottom: 3px solid #f2f8eb;
+      padding-right:5px;
+    }
+    .student tr {
+      border: none;
+      padding: 5px 0px;
+      display: flex;
+    }
+    .student th, .student td {
+      border:none;
+    }
+    .student th {
+      width:80px;
+      padding-bottom: 0px;
+    }
+    .student td {
+      border-bottom: 2px dotted black;
+      padding:0px;
+    }
+    .student td span {
+      position: relative;
+      top: 6px;
+    }
+    .no-bg {
+      background-color: transparent !important;
+      padding: 0;
+    }
+    mark {
+      background-color: transparent !important;
+      padding: 0;
+    }
+    @media print {
+      @page {
         size: A4;
         margin: 20mm;
-    }
-    body, html {
+      }
+      body, html {
         font-size: 12px;
         width: 100%;
         height: auto;
         margin: 0;
-    }
-    h1, h2 {
+      }
+      h1, h2 {
         text-align: center;
         font-size: 18px;
-    }
-    .student, .table {
+      }
+      .student, .table {
         width: 100%;
         page-break-inside: avoid;
-    }
-    table {
+      }
+      table {
         width: 100%;
         max-width: none;
-    }
-    input {
+      }
+      input {
         width: auto;
         font-size: 12px;
         border: none;
         background: transparent;
-    }
-    .col-blue, .col-green, .col-red {
-        font-size: 14px;
-    }
-    /* Hide unnecessary elements during print (like input fields) */
-    input[type="text"], input[type="number"] {
+      }
+      /* Hide unnecessary elements during print (like input fields) */
+      input[type="text"], input[type="number"] {
         border: none;
         background: none;
+      }
     }
-}
-</style>
+    /* Simple styling for the personal details submit button */
+    .submit-btn {
+      padding: 8px 15px;
+      margin: 10px auto;
+      display: block;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
 <div style="max-width:550px;margin:0px auto;">
-  <!-- Fix input attributes -->
-<h1><input type="text" placeholder="ENTER YOUR SCHOOL NAME"/></h1>
-<p><input type="text" placeholder="Give recognization board name"/><br> 
-   <b><input type="url" id="gmail" placeholder="https://mail.google.com/..."/></b></p>
-  <address>
-    <input text="text" placeholder="Enter your Address"/>
-  </address>
-  <h2>My Mark Sheet</h2>
-  <table class="student">
-   <tr><th>Name : </th><td colspan="3"><input type="text" placeholder="Enter your name"/></td></tr>
-   <tr><th>Class : </th><td><input type="text" placeholder="Enter class"/></td><th>Year/Section: </th><td><input type="text" placeholder="Enter your Section name"/></td></tr>
-   <tr><th>Roll No. : </th><td colspan="3"><input type="number" placeholder="Enter symbol number"/></td></tr>
-  </table>
 
+  <!-- Personal Details Form -->
+  <form id="personalDetailForm" onsubmit="return validatePersonalDetails(event)">
+    <h1><input type="text" id="schoolName" placeholder="ENTER YOUR SCHOOL NAME" /></h1>
+    <p>
+      <input type="text" id="boardName" placeholder="Give recognization board name" /><br> 
+      <b><input type="url" id="gmail" placeholder="https://mail.google.com/..." /></b>
+    </p>
+    <address>
+      <input type="text" id="address" placeholder="Enter your Address" />
+    </address>
+    <div style="text-align:center;">
+      <!-- <button class="submit-btn" type="submit">Submit Personal Details</button> -->
+    </div>
+  </form>
+  <!-- End Personal Details Form -->
+
+  <!-- Remaining content starts here -->
+
+<!-- Mark Sheet Form -->
+<form id="markSheetForm" onsubmit="return validateMarkSheet(event)">
+    <h2>My Mark Sheet</h2>
+    <table class="student">
+        <tr>
+            <th>Name : </th>
+            <td colspan="3">
+                <input type="text" id="studentName" placeholder="Enter your name" required class="student-info"/>
+            </td>
+        </tr>
+        <tr>
+            <th>Class : </th>
+            <td>
+                <input type="text" id="class" placeholder="Enter class" required class="student-info"/>
+            </td>
+            <th>Year/Section: </th>
+            <td>
+                <input type="text" id="section" placeholder="Enter your Section name" required class="student-info"/>
+            </td>
+        </tr>
+        <tr>
+            <th>Roll No. : </th>
+            <td colspan="3">
+                <input type="number" id="roll" placeholder="Enter symbol number" required class="student-info"/>
+            </td>
+        </tr>
+    </table>
+    <!-- Remove the extra closing comment --> 
+    <!-- <button class="submit-btn" type="submit">Submit Mark Sheet</button> -->
+    <table class="table">
+      <tr>
+        <th>Subject</th>
+        <th>Marks</th>
+        <th>Grade</th>
+      </tr>
+      <tr>
+        <td><span>ENGLISH</span></td>
+        <td><input type="number" placeholder="Enter Marks..." class="marks" min="0" max="99.99" maxlength="2" oninput="this.value=this.value.slice(0,2)" /></td>
+        <td class="grade"></td>
+      </tr>
+      <tr>
+        <td><span>NEPALI</span></td>
+        <td><input type="number" placeholder="Enter Marks..." class="marks"  min="0" max="99.99" maxlength="2" oninput="this.value=this.value.slice(0,2)" /></td>
+        <td class="grade"></td>
+      </tr>
+      <tr>
+        <td><span>SCIENCE</span></td>
+        <td><input type="number" placeholder="Enter Marks..." class="marks"  min="0" max="99.99" maxlength="2" oninput="this.value=this.value.slice(0,2)" /></td>
+        <td class="grade"></td>
+      </tr>
+
+      <tr>
+        <td><span>MATH</span></td>
+        <td><input type="number" placeholder="Enter Marks..." class="marks" min="0" max="99.99" maxlength="2" oninput="this.value=this.value.slice(0,2)"/></td>
+        <td class="grade"></td>
+      </tr>
+      <tr>
+        <td><span>SOCIAL</span></td>
+        <td><input type="number" placeholder="Enter Marks..." class="marks" min="0" max="99.99" maxlength="2" oninput="this.value=this.value.slice(0,2)"/></td>
+        <td class="grade"></td>
+      </tr>
+      <tr>
+        <td><input type="text" id="optional1" placeholder="OPTIONAL SUBJECT I"/></td>
+        <td><input type="number" placeholder="Enter Marks..." class="marks optional1-marks" min="0" max="99.99" maxlength="2" oninput="this.value=this.value.slice(0,2)" disabled/></td>
+        <td class="grade"></td>
+    </tr>
+    <tr>
+        <td><input type="text" id="optional2" placeholder="OPTIONAL SUBJECT II"/></td>
+        <td><input type="number" placeholder="Enter Marks..." class="marks optional2-marks" min="0" max="99.99" maxlength="2" oninput="this.value=this.value.slice(0,2)" disabled/></td>
+        <td class="grade"></td>
+    </tr>
+    
+    </table>
+   
+    <!-- Add this after the marks table -->
 <table class="table">
-  <tr>
-    <th>Subject</th>
-    <th>Marks</th>
-    <th>Grade</th>
-  </tr>
-  <tr>
-    <td><span>ENGLISH</span></td>
-    <td><input type="number" placeholder="Enter Marks..." class="marks" min="0" max="99.99" maxlength="2" oninput="this.value=this.value.slice(0,2)"/></td>
-    <td class="grade"></td>
-  </tr>
-  <tr>
-    <td><span>NEPALI</span></td>
-    <td><input type="number" placeholder="Enter Marks..." class="marks" min="0" max="99.99" maxlength="2" oninput="this.value=this.value.slice(0,2)"/></td>
-    <td class="grade"></td>
-  </tr>
-  <tr>
-    <td><span>SCIENCE</span></td>
-    <td><input type="number" placeholder="Enter Marks..." class="marks" min="0" max="99.99" maxlength="2" oninput="this.value=this.value.slice(0,2)"/></td>
-    <td class="grade"></td>
-  </tr>
-  <tr>
-    <td><span>MATH</span></td>
-    <td><input type="number" placeholder="Enter Marks..." class="marks" min="0" max="99.99" maxlength="2" oninput="this.value=this.value.slice(0,2)"/></td>
-    <td class="grade"></td>
-  </tr>
-  <tr>
-    <td><span>SOCIAL</span></td>
-    <td><input type="number" placeholder="Enter Marks..." class="marks" min="0" max="99.99" maxlength="2" oninput="this.value=this.value.slice(0,2)"/></td>
-    <td class="grade"></td>
-  </tr>
-  <tr>
-    <td><input type="text" id="optional1" placeholder="OPTIONAL SUBJECT I"/></td>
-    <td><input type="number" placeholder="Enter Marks..." class="marks optional1-marks" min="0" max="99.99" maxlength="2" oninput="this.value=this.value.slice(0,2)" disabled/></td>
-    <td class="grade"></td>
-</tr>
-<tr>
-    <td><input type="text" id="optional2" placeholder="OPTIONAL SUBJECT II"/></td>
-    <td><input type="number" placeholder="Enter Marks..." class="marks optional2-marks" min="0" max="99.99" maxlength="2" oninput="this.value=this.value.slice(0,2)" disabled/></td>
-    <td class="grade"></td>
-</tr>
+    <tr>
+        <td>Total Marks :</td>
+        <td id="totalmarks"></td>
+    </tr>
+    <tr>
+        <td>Percentage :</td>
+        <td id="percentage"></td>
+    </tr>
+    <tr>
+        <td>Final Grade :</td>
+        <td id="finalgrade"></td>
+    </tr>
+</table>
   
-</table>
-<table>
-  <tr>
-    <td>Total Marks :</td>
-    <td id="totalmarks"></td>
-  </tr>
-  <tr>
-    <td>Perentage :</td>
-    <td id="percentage"></td>
-  </tr>
-  <tr>
-    <td>Final Grade :</td>
-    <td id="finalgrade"></td>
-  </tr>
-</table>
-<!-- Fix signature table structure -->
-<table class="table">
-  <tr>
-      <th>PRINCIPlE SIGNATURE: </th>
-      <td><input type="text"></td>
-  </tr>
-  <tr>
-      <th>CLASS TEACHER SIGNATURE: </th>
-      <td><input type="text"></td>
-  </tr>
-  <tr>
-      <th>GAURDIAN SIGNATURE: </th>
-      <td><input type="text"></td>
-  </tr>
-</table>
-</div>
-
+    <div style="text-align:center;">
+      <!-- <button class="submit-btn" type="submit">Submit Mark Sheet</button> -->
+    </div>
+  </form>
+  
 <script>
-// Add this before your existing event listener
+// --- Personal Details Validation --- //
+function validatePersonalDetails(event) {
+  event.preventDefault();
+  var school = document.getElementById("schoolName").value.trim();
+  var board = document.getElementById("boardName").value.trim();
+  var gmail = document.getElementById("gmail").value.trim();
+  var addr = document.getElementById("address").value.trim();
+  var missing = [];
+  
+  if (!school) { missing.push("School Name"); }
+  if (!board) { missing.push("Board Name"); }
+  if (!gmail) { missing.push("Gmail URL"); }
+  if (!addr) { missing.push("Address"); }
+  
+  if(missing.length > 0) {
+    alert("Please fill in: " + missing.join(", "));
+    return false;
+  } else {
+    alert("Personal details submitted successfully.");
+    // You can proceed with further actions here (like enabling next steps)
+    return false; // Prevent actual submission for demo purposes
+  }
+}
+function validateForm() {
+  const name = document.getElementById("studentName").value.trim();
+  const className = document.getElementById("class").value.trim();
+  const section = document.getElementById("section").value.trim();
+  const roll = document.getElementById("roll").value.trim();
+
+  if (!name || !className || !section || !roll) {
+    alert("Please fill out all personal details.");
+    return false;
+  }
+
+  // Continue with other field validations...
+
+  return true;
+}
+
+// --- Optional Subject Listeners --- //
 document.getElementById('optional1').addEventListener('input', function() {
-    const marksInput = document.querySelector('.optional1-marks');
-    if(this.value.trim() !== '') {
-        marksInput.disabled = false;
-    } else {
-        marksInput.disabled = true;
-        marksInput.value = '';
-    }
+  const marksInput = document.querySelector('.optional1-marks');
+  if(this.value.trim() !== '') {
+    marksInput.disabled = false;
+  } else {
+    marksInput.disabled = true;
+    marksInput.value = '';
+  }
 });
-
+  
 document.getElementById('optional2').addEventListener('input', function() {
-    const marksInput = document.querySelector('.optional2-marks');
-    if(this.value.trim() !== '') {
-        marksInput.disabled = false;
+  const marksInput = document.querySelector('.optional2-marks');
+  if(this.value.trim() !== '') {
+    marksInput.disabled = false;
+  } else {
+    marksInput.disabled = true;
+    marksInput.value = '';
+  }
+});
+  
+// --- Grade Calculation on Keyup --- //
+// Replace the grade calculation section
+document.addEventListener('keyup', function (event) {
+    var totalmarks = 0;
+    var subjectCount = 0;
+    var x = document.getElementsByClassName("marks");
+    
+    // First count valid marks
+    for(var i = 0; i < x.length; i++) {
+        if(x[i].value.trim() !== '' && !x[i].disabled) {
+            subjectCount++;
+            totalmarks += parseFloat(x[i].value);
+        }
+    }
+    
+    // Calculate grades only if all subjects have marks
+    if(subjectCount === 7) {
+        for(var i = 0; i < x.length; i++) {
+            if(x[i].value !== '' && !x[i].disabled) {
+                let mark = parseFloat(x[i].value);
+                if(mark > 90) {
+                    document.getElementsByClassName("grade")[i].innerHTML = '<mark class="col-green">A+</mark>';
+                } else if(mark > 80) {
+                    document.getElementsByClassName("grade")[i].innerHTML = '<mark class="col-blue">A</mark>';
+                } else if(mark > 70) {
+                    document.getElementsByClassName("grade")[i].innerHTML = '<mark class="col-blue">B+</mark>';
+                } else if(mark > 60) {
+                    document.getElementsByClassName("grade")[i].innerHTML = '<mark class="col-blue">B</mark>';
+                } else if(mark > 50) {
+                    document.getElementsByClassName("grade")[i].innerHTML = '<mark class="col-blue">C+</mark>';
+                } else if(mark > 40) {
+                    document.getElementsByClassName("grade")[i].innerHTML = '<mark class="col-blue">C</mark>';
+                } else if(mark > 35) {
+                    document.getElementsByClassName("grade")[i].innerHTML = '<mark class="col-blue">D</mark>';
+                } else {
+                    document.getElementsByClassName("grade")[i].innerHTML = '<mark class="col-red">F</mark>';
+                }
+            }
+        }
+        
+        // Calculate and display results
+        var percentage = (totalmarks / 7).toFixed(2);
+        document.getElementById('totalmarks').innerHTML = '<mark class="no-bg">' + totalmarks + ' / 700</mark>';
+        document.getElementById('percentage').innerHTML = '<mark class="no-bg">' + percentage + ' %</mark>';
+        
+        // Final grade calculation
+        if(parseFloat(percentage) > 90) {
+            document.getElementById("finalgrade").innerHTML = '<mark class="col-green">Grade A+</mark>';
+        } else if(parseFloat(percentage) > 80) {
+            document.getElementById("finalgrade").innerHTML = '<mark class="col-blue">Grade A</mark>';
+        } else if(parseFloat(percentage) > 70) {
+            document.getElementById("finalgrade").innerHTML = '<mark class="col-blue">Grade B+</mark>';
+        } else if(parseFloat(percentage) > 60) {
+            document.getElementById("finalgrade").innerHTML = '<mark class="col-blue">Grade B</mark>';
+        } else if(parseFloat(percentage) > 50) {
+            document.getElementById("finalgrade").innerHTML = '<mark class="col-blue">Grade C+</mark>';
+        } else if(parseFloat(percentage) > 40) {
+            document.getElementById("finalgrade").innerHTML = '<mark class="col-blue">Grade C</mark>';
+        } else if(parseFloat(percentage) > 35) {
+            document.getElementById("finalgrade").innerHTML = '<mark class="col-blue">Grade D</mark>';
+        } else {
+            document.getElementById("finalgrade").innerHTML = '<mark class="col-red">Fail</mark>';
+        }
     } else {
-        marksInput.disabled = true;
-        marksInput.value = '';
+        // Clear results if not all subjects have marks
+        document.getElementById('totalmarks').innerHTML = '<mark class="no-bg">Enter all subject marks</mark>';
+        document.getElementById('percentage').innerHTML = '<mark class="no-bg">-</mark>';
+        document.getElementById("finalgrade").innerHTML = '<mark class="no-bg">-</mark>';
     }
 });
-document.addEventListener('keyup', function (event) {
-									 
-var totalmarks = 0;
-var x = document.getElementsByClassName("marks");
-for(var i = 0; i<x.length; i++){
 
-if(x[i].value!='')	{
-
-if(parseFloat(x[i].value)>90)
-{
- document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-green">A+</mark>';
-}
-else if(parseFloat(x[i].value)>80)
-{
- document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-blue">A</mark>';
-}
-else if(parseFloat(x[i].value)>70)
-{
- document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-blue">B+</mark>';
-}
-else if(parseFloat(x[i].value)>60)
-{
- document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-blue">B</mark>';
-}
-else if(parseFloat(x[i].value)>50)
-{
- document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-blue">C+</mark>';
-}
-else if(parseFloat(x[i].value)>40)
-{
- document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-blue">C</mark>';
-}		
-else if(parseFloat(x[i].value)>35)
-{
- document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-blue">D</mark>';
-}		
-else 
-{
- document.getElementsByClassName("grade")[i].innerHTML='<mark class="col-red">D</mark>';
-}
- totalmarks += parseFloat(x[i].value);
-}
-}
-
-document.getElementById('totalmarks').innerHTML='<mark class="no-bg">'+totalmarks +' / 700</mark>';
-
-var percentage = parseFloat(totalmarks)/7;
-
-document.getElementById('percentage').innerHTML='<mark class="no-bg">'+percentage +' %</mark>';
-
-if(parseFloat(percentage)>90)
-{
- document.getElementById("finalgrade").innerHTML='<mark class="col-green">Grade A+</mark>';
-}
-else if(parseFloat(percentage)>80)
-{
- document.getElementById("finalgrade").innerHTML='<mark class="col-blue">Grade A</mark>';
-}
-else if(parseFloat(percentage)>70)
-{
- document.getElementById("finalgrade").innerHTML='<mark class="col-blue">Grade B+</mark>';
-}
-else if(parseFloat(percentage)>60)
-{
- document.getElementById("finalgrade").innerHTML='<mark class="col-blue">Grade B</mark>';
-}
-else if(parseFloat(percentage)>50)
-{
- document.getElementById("finalgrade").innerHTML='<mark class="col-blue">Grade C+</mark>';
-}
-else if(parseFloat(percentage)>40)
-{
- document.getElementById("finalgrade").innerHTML='<mark class="col-blue">Grade C</mark>';
-}		
-else if(parseFloat(percentage)>35)
-{
- document.getElementById("finalgrade").innerHTML='<mark class="col-blue">Grade D</mark>';
-}		
-else 
-{
- document.getElementById("finalgrade").innerHTML='<mark class="col-red">Fail</mark>';
-}
-});
 </script>
 </body>
 </html>
